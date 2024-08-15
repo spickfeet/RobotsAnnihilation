@@ -9,7 +9,6 @@ namespace Assets.Scripts.Inventory
     public class Inventory
     {
         private IList<IItem> _items;
-        private ItemCreator _creator = new();
 
         public Inventory(IList<IItem> items)
         {
@@ -26,7 +25,6 @@ namespace Assets.Scripts.Inventory
                     return true;
                 }
             }
-            _items.Add(_creator.CreateItem(item));
             return true;
         }
 

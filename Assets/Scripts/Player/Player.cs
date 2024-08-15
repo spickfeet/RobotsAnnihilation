@@ -7,17 +7,28 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
 public class Player : MonoBehaviour, IDamageable
 {
     [SerializeField] private int _maxHealth;
     [SerializeField] private float _timeImmortalityAfterDamage;
+
+    [SerializeField] private float _interactableRadius;
+
+    [SerializeField] private LayerMask _interactableLayer;
+    [SerializeField] private GameObject _pressE;
+
+    [SerializeField] private AudioClip _applyDamageSound;
+    [SerializeField] private AudioClip _applyHealSound;
+    [SerializeField] private AudioClip _lowHPSound;
+    private AudioSource _audioSource;
 
     private int _currentHealth;
     private Inventory _inventory;
 
     private Animator _animator;
 
-    private bool _isDamageable = true;
+    private bool _damageable = true;
 
 
     public int CurrentHealth
@@ -37,42 +48,79 @@ public class Player : MonoBehaviour, IDamageable
     }
 
     public Action OnDead;
+    public Action<int> OnHealthChanged;
 
-    private void Start()
+    private void Awake()
     {
         _animator = GetComponent<Animator>();
+        _audioSource = GetComponent<AudioSource>();
 
         _inventory = new(new List<IItem>());
         _currentHealth = _maxHealth;
     }
 
+    private void Update()
+    {
+        Collider2D[] collider2Ds = Physics2D.OverlapCircleAll(transform.position, _interactableRadius, _interactableLayer);
+
+        if(collider2Ds.Length > 0)
+        {
+            _pressE.SetActive(true);
+        }
+        else 
+        { 
+            _pressE.SetActive(false); 
+        }
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            Debug.Log(collider2Ds.Length);
+            Interact(collider2Ds);
+        }
+    }
+
+    private void Interact(Collider2D[] collider2Ds)
+    {
+        foreach (var collider2D in collider2Ds)
+        {
+            if (collider2D.TryGetComponent<IInteractable>(out IInteractable interactable)) 
+            {
+                interactable.Interact();
+            }
+        }
+        
+    }
+
     public void ApplyImmortality(float time)
     {
-        StartCoroutine(Immortality(time));
+        if(_damageable == true)
+         StartCoroutine(Immortality(time));
     }
 
     private IEnumerator Immortality(float time)
     {
-        _isDamageable = false;
+        _damageable = false;
         yield return new WaitForSeconds(time);
-        _isDamageable = true;
+        _damageable = true;
         _animator.Play("PlayerIdle");
     }
 
     public void ApplyDamage(int damage)
     {
-        if (_isDamageable == false) { return; }
+        if (_damageable == false) { return; }
 
         if (damage < 0) throw new ArgumentException("Урон не может быть отрицательным");
         _currentHealth -= damage;
-        
+        OnHealthChanged.Invoke(_currentHealth);
         if (_currentHealth <= 0)
         {
-            Debug.Log("You Lose");
-            OnDead?.Invoke();
+            Die();
             return;
         }
-        Debug.Log(_currentHealth);
+
+        if(_currentHealth * 4 <= _maxHealth) _audioSource.PlayOneShot(_lowHPSound);
+        else _audioSource.PlayOneShot(_applyDamageSound);
+
         _animator.Play("PlayerImmortal");
         ApplyImmortality(_timeImmortalityAfterDamage);
     }
@@ -81,10 +129,23 @@ public class Player : MonoBehaviour, IDamageable
     {
         if (health < 0) throw new ArgumentException("Лечение не может быть отрицательным");
         _currentHealth += health;
+        _audioSource.PlayOneShot(_applyHealSound);
+
+
         if (_currentHealth > _maxHealth)
         {
             _currentHealth = _maxHealth;
         }
+        OnHealthChanged.Invoke(_currentHealth);
+       
+    }
+    public void Die()
+    {
+        Destroy(gameObject);
     }
 
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.DrawWireSphere(transform.position, _interactableRadius);
+    }
 }

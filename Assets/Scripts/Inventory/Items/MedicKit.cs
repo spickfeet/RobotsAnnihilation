@@ -3,16 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UnityEngine;
 
 namespace Assets.Scripts.Inventory.Items
 {
-    public class MedicKit : Item
+    public class MedicKit : MonoBehaviour, IInteractable
     {
-        public MedicKit(int count, int maxCount)
+        [SerializeField] private int _healPoint;
+        [SerializeField] private Player _player;
+        private void Awake()
         {
-            Type = ItemType.MedicKit;
-            Count = count;
-            MaxCount = maxCount;
+            _player = FindAnyObjectByType<Player>();
+        }
+        public void Interact()
+        {
+            _player.ApplyHeal(_healPoint);
+            Destroy(gameObject);
         }
     }
 }

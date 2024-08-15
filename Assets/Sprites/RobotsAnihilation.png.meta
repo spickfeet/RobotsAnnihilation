@@ -347,10 +347,10 @@ TextureImporter:
       name: RobotsAnihilation_11
       rect:
         serializedVersion: 2
-        x: 190
-        y: 64
-        width: 24
-        height: 44
+        x: 192
+        y: 80
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -368,10 +368,10 @@ TextureImporter:
       name: RobotsAnihilation_13
       rect:
         serializedVersion: 2
-        x: 32
-        y: 64
-        width: 16
-        height: 16
+        x: 36
+        y: 68
+        width: 9
+        height: 7
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -389,7 +389,7 @@ TextureImporter:
       name: RobotsAnihilation_14
       rect:
         serializedVersion: 2
-        x: 48
+        x: 65
         y: 64
         width: 16
         height: 16
@@ -411,7 +411,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 160
-        y: 64
+        y: 62
         width: 16
         height: 16
       alignment: 0
@@ -683,12 +683,12 @@ TextureImporter:
       name: RobotsAnihilation_0
       rect:
         serializedVersion: 2
-        x: 156
-        y: 37
+        x: 160
+        y: 32
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -696,6 +696,216 @@ TextureImporter:
       bones: []
       spriteID: 5ef2ca91dba6c334fa7413c03ae8b8d2
       internalID: -8704977509556216884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RobotsAnihilation_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 80
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42c93a20a3cb5f74185be3db00874119
+      internalID: 218269319958025426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RobotsAnihilation_12
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0ac595274e67b045b68b129f873fd54
+      internalID: 7821197358939740513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RobotsAnihilation_16
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 12
+        width: 30
+        height: 40
+      alignment: 9
+      pivot: {x: 0.49231365, y: 0.19878563}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9851fbe06f4791944aab2b073af5026a
+      internalID: 1020877809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RobotsAnihilation_17
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2eb5cc94c4994784d9f4f06556da3d0d
+      internalID: 2045953067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RobotsAnihilation_21
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a009e252ae446b478111bf1528d7530
+      internalID: -864883140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RobotsAnihilation_22
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6088d109ddb4c16408f0be2adcaec32e
+      internalID: -1759783124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RobotsAnihilation_26
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 0
+        width: 26
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 292feae3f2779514b9093117c1ce71bb
+      internalID: -1738906291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RobotsAnihilation_27
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 6, y: 6, z: 6, w: 6}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58ccfe10050928944a51ecf85a4ead44
+      internalID: 2047125047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RobotsAnihilation_33
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 96
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 6, y: 6, z: 6, w: 6}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0b6b610b3b0f234aa69e0936bd1e6fd
+      internalID: -616384836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RobotsAnihilation_35
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 100
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bff66d7e11346014099f1a37e59f5a46
+      internalID: 943345488
       vertices: []
       indices: 
       edges: []
@@ -740,6 +950,7 @@ TextureImporter:
       RobotsAnihilation_32: -699936912
       RobotsAnihilation_33: -616384836
       RobotsAnihilation_34: 325981717
+      RobotsAnihilation_35: 943345488
       RobotsAnihilation_4: -2481168726957875176
       RobotsAnihilation_5: -2571654256477135968
       RobotsAnihilation_6: -280586019341724257

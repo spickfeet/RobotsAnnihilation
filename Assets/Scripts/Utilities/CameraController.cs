@@ -30,7 +30,7 @@ public class CameraController : MonoBehaviour
         set { _channelPerlin = value; }
     }
 
-    private void Start()
+    private void Awake()
     {
         CinemachineCamera = GetComponent<CinemachineVirtualCamera>();
         Transposer = CinemachineCamera.GetCinemachineComponent<CinemachineTransposer>();
@@ -42,6 +42,7 @@ public class CameraController : MonoBehaviour
     }
     public void Shake(float amplitude, float frequency, float time, float fadeTimeAmplitude, float fadeTimeFrequency)
     {
+        StopCoroutine(ShakeCamera(amplitude, frequency, time, fadeTimeAmplitude, fadeTimeFrequency));
         StartCoroutine(ShakeCamera(amplitude, frequency, time, fadeTimeAmplitude, fadeTimeFrequency));
     }
 
@@ -51,11 +52,10 @@ public class CameraController : MonoBehaviour
         for (float i = 0; i < 1; i += Time.deltaTime)
         {
             _cinemachineCamera.m_Lens.OrthographicSize = Mathf.Lerp(_cameraSize, newSize, EasyInOut(i));
-            yield return null;
         }
     }
 
-    public IEnumerator ShakeCamera(float amplitude, float frequency, float time, float fadeTimeAmplitude, float fadeTimeFrequency)
+    private IEnumerator ShakeCamera(float amplitude, float frequency, float time, float fadeTimeAmplitude, float fadeTimeFrequency)
     {
         ChannelPerlin.m_AmplitudeGain = amplitude;
         ChannelPerlin.m_FrequencyGain = frequency;

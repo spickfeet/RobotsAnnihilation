@@ -12,6 +12,12 @@ public class Bullet : MonoBehaviour
 
     [SerializeField] private GameObject _hitEffectPrefab;
 
+    public int Damage
+    {
+        get { return _damage; }
+        set { _damage = value; }
+    }
+
     private void Update()
     {
         _lifeTime -= Time.deltaTime;
@@ -31,7 +37,7 @@ public class Bullet : MonoBehaviour
 
         
 
-        Instantiate(_hitEffectPrefab, transform.position, transform.rotation);
+        Instantiate(_hitEffectPrefab, transform.position, transform.rotation).transform.Rotate(0, 0, Random.Range(0, 360));
         Destroy(this.gameObject);
     }
 }
