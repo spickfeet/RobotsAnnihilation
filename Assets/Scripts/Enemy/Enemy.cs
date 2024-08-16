@@ -3,6 +3,7 @@ using Assets.Scripts.Utilities;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 [RequireComponent(typeof(AudioSource))]
@@ -22,6 +23,7 @@ public class Enemy : MonoBehaviour, IDamageable
     [SerializeField] private int _currentHealth;
 
     public Action OnHealthChanged;
+    public Action OnDead;
 
     public bool HaveTeleporter
     {
@@ -69,6 +71,7 @@ public class Enemy : MonoBehaviour, IDamageable
     public void Die()
     {
         DropItem();
+        OnDead?.Invoke();
         Instantiate(_destroyEffectPrefab,transform.position,transform.rotation);
         Destroy(gameObject);
     }

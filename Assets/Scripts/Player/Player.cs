@@ -74,7 +74,6 @@ public class Player : MonoBehaviour, IDamageable
 
         if (Input.GetKeyDown(KeyCode.E))
         {
-            Debug.Log(collider2Ds.Length);
             Interact(collider2Ds);
         }
     }
@@ -141,6 +140,7 @@ public class Player : MonoBehaviour, IDamageable
     }
     public void Die()
     {
+        OnDead?.Invoke();
         Destroy(gameObject);
     }
 
