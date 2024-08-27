@@ -49,6 +49,7 @@ GameObject:
   - component: {fileID: 981874920724055946}
   - component: {fileID: 7912202449259552795}
   - component: {fileID: 742297394961373606}
+  - component: {fileID: 4207537743162086466}
   m_Layer: 7
   m_Name: RobotTurrel
   m_TagString: Untagged
@@ -66,7 +67,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.23, y: -0.57, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 179327204546225891}
@@ -139,7 +140,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: 8
-  _destroyEffectPrefab: {fileID: 7526817728144273540, guid: f4c202c95fc21e146aaea2ede2c4bee8, type: 3}
+  _destroyEffectPrefab: {fileID: 5556571912776595040, guid: f4c202c95fc21e146aaea2ede2c4bee8, type: 3}
   _dropPrefabs:
   - {fileID: 7902947762504420966, guid: 11cfd4009535c0b4a9422f91763d03f7, type: 3}
   - {fileID: 8957595754212678531, guid: ef8eec03495df1846aab7dd52d9d38d6, type: 3}
@@ -164,7 +165,7 @@ MonoBehaviour:
   _bulletSize: 1
   _damage: 1
   _bulletSpeed: 10
-  _attackRange: 4
+  _attackRange: 7
   _nextAttackTime: 0.01
   _shootSound: {fileID: 8300000, guid: 5eb2c89e84650a845b3284330d9914f1, type: 3}
 --- !u!70 &4045534135067325802
@@ -266,8 +267,8 @@ MonoBehaviour:
     m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
-  m_PointLightInnerRadius: 0
-  m_PointLightOuterRadius: 5.1
+  m_PointLightInnerRadius: 3.17
+  m_PointLightOuterRadius: 17.04
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
@@ -297,7 +298,7 @@ MonoBehaviour:
   _minSpawnTime: 3
   _maxSpawnTime: 5
   _spawnTimer: 0
-  _maxSpawnCount: 4
+  _maxSpawnCount: 5
   _enemies: []
 --- !u!82 &7912202449259552795
 AudioSource:
@@ -412,3 +413,26 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &4207537743162086466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6010225908507486320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82f71eeb331350340966d813d06b0109, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _startAngle: 0
+  _endAngle: 360
+  _bulletsCount: 10
+  _bullet: {fileID: 8809553760018182014, guid: b9b7ffa22f2b18949bd7f06949fdf569, type: 3}
+  _bulletSpawner: {fileID: 179327204546225891}
+  _minBulletSpeed: 5
+  _maxBulletSpeed: 5
+  _bulletDamage: 1
+  _maxBulletSize: 1
+  _minBulletSize: 1
+  _nextShootTime: 0.5

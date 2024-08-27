@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 1177890140430608643}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.5000763, y: -0.75009346, z: 0}
+  m_LocalPosition: {x: -0.07, y: -0.04, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -256,9 +256,9 @@ MonoBehaviour:
   _shootPoint: {fileID: 7110886297699933661}
   _player: {fileID: 0}
   _bulletSize: 1
-  _damage: 3
-  _bulletSpeed: 20
-  _attackRange: 7
+  _damage: 2
+  _bulletSpeed: 10
+  _attackRange: 6
   _nextAttackTime: 0.1
   _shootSound: {fileID: 8300000, guid: 5eb2c89e84650a845b3284330d9914f1, type: 3}
 --- !u!60 &3773802372430846035
@@ -617,9 +617,9 @@ MonoBehaviour:
   _shootPoint: {fileID: 6519719718285080742}
   _player: {fileID: 0}
   _bulletSize: 1
-  _damage: 3
-  _bulletSpeed: 20
-  _attackRange: 7
+  _damage: 2
+  _bulletSpeed: 10
+  _attackRange: 6
   _nextAttackTime: 0.1
   _shootSound: {fileID: 8300000, guid: 5eb2c89e84650a845b3284330d9914f1, type: 3}
 --- !u!60 &1174869666286265663
@@ -764,8 +764,9 @@ GameObject:
   - component: {fileID: 8156654318898777818}
   - component: {fileID: 8716469580798611161}
   - component: {fileID: 81546640574939164}
+  - component: {fileID: 2149011092735556887}
   m_Layer: 7
-  m_Name: BossMain
+  m_Name: BossBulletHell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -997,7 +998,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3874174981029894783}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b24e58f9540c7ab41b2e560bf5fb6b2d, type: 3}
   m_Name: 
@@ -1011,6 +1012,29 @@ MonoBehaviour:
   _attackRange: 5
   _nextAttackTime: 0.1
   _shootSound: {fileID: 8300000, guid: 5eb2c89e84650a845b3284330d9914f1, type: 3}
+--- !u!114 &2149011092735556887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3874174981029894783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82f71eeb331350340966d813d06b0109, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _startAngle: 0
+  _endAngle: 360
+  _bulletsCount: 10
+  _bullet: {fileID: 8809553760018182014, guid: b9b7ffa22f2b18949bd7f06949fdf569, type: 3}
+  _bulletSpawner: {fileID: 23079782348330630}
+  _minBulletSpeed: 2
+  _maxBulletSpeed: 5
+  _bulletDamage: 2
+  _maxBulletSize: 1
+  _minBulletSize: 1
+  _nextShootTime: 0.2
 --- !u!1 &5930943652167127419
 GameObject:
   m_ObjectHideFlags: 0
@@ -1026,15 +1050,16 @@ GameObject:
   - component: {fileID: 7656921653681412005}
   - component: {fileID: 7583720758906409479}
   - component: {fileID: 7650629298954312783}
-  - component: {fileID: 1671236356075080471}
   - component: {fileID: 8233108208852743720}
+  - component: {fileID: 8313612396362260339}
+  - component: {fileID: 5286087416142616089}
   m_Layer: 7
   m_Name: BossSkeletron
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5966352903107164245
 Transform:
   m_ObjectHideFlags: 0
@@ -1043,7 +1068,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5930943652167127419}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -110.16, y: -4.38, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1120,7 +1145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8397088a1662bd4fa322cbeef246e8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 6.5
+  _speed: 7
   _attackDistance: 0
   _player: {fileID: 0}
 --- !u!82 &1665994881469616225
@@ -1297,28 +1322,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!195 &1671236356075080471
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5930943652167127419}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.9519119
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 4.006072
-  m_BaseOffset: 2.003036
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
 --- !u!114 &8233108208852743720
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1371,6 +1374,46 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!114 &8313612396362260339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5930943652167127419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ba00b71a04971248bf225ca71e718cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bulletHellCircle: {fileID: 2149011092735556887}
+  _nextDashTime: 2
+  _nextDashTimer: 0
+  _dashDistanceOfPlayer: 10
+  _distanceOfPlayer: 0
+  _medicKitPref: {fileID: 7902947762504420966, guid: 11cfd4009535c0b4a9422f91763d03f7, type: 3}
+--- !u!195 &5286087416142616089
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5930943652167127419}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 12
+  avoidancePriority: 50
+  m_AngularSpeed: 180
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 1
+  m_BaseOffset: 0.5
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &6444145620983993031
 GameObject:
   m_ObjectHideFlags: 0

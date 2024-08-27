@@ -333,7 +333,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: 3
-  _destroyEffectPrefab: {fileID: 7526817728144273540, guid: f4c202c95fc21e146aaea2ede2c4bee8, type: 3}
+  _destroyEffectPrefab: {fileID: 5556571912776595040, guid: f4c202c95fc21e146aaea2ede2c4bee8, type: 3}
   _dropPrefabs:
   - {fileID: 7902947762504420966, guid: 11cfd4009535c0b4a9422f91763d03f7, type: 3}
   _chanceDropMedicKit: 10

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Assets.Scripts.Utilities;
+using Assets.Scripts.Utilities.Sounds;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,7 +26,7 @@ namespace Assets.Scripts.Enemy.Weapons
         [SerializeField] private float _nextAttackTime;
 
         [SerializeField] private AudioClip _shootSound;
-        private AudioSource _audioSource;
+        private ISoundManager _soundManager;
 
 
         private float _nextAttackTimer;
@@ -33,7 +35,7 @@ namespace Assets.Scripts.Enemy.Weapons
 
         private void Awake()
         {
-            _audioSource = GetComponent<AudioSource>();
+            _soundManager = new SoundManager(GetComponent<AudioSource>(), SoundType.SFX);
             _player = FindAnyObjectByType<Player>();
         }
 
@@ -62,7 +64,7 @@ namespace Assets.Scripts.Enemy.Weapons
 
         public void Shoot()
         {
-            _audioSource.PlayOneShot(_shootSound);
+            _soundManager.PlayOneShot(_shootSound);
             GameObject bullet = Instantiate(_bulletPrefab, _shootPoint.position, _shootPoint.rotation);
             bullet.transform.localScale *= _bulletSize;
             Light2D bulletLight = bullet.GetComponent<Light2D>();

@@ -1,6 +1,4 @@
-using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.SceneManagement;
 using UnityEngine;
 
 public class TeleporterSetter : MonoBehaviour
@@ -13,14 +11,14 @@ public class TeleporterSetter : MonoBehaviour
             if (_enemySpawners[i] == null)
             {
                 _enemySpawners.Remove(_enemySpawners[i]);
-                if(_enemySpawners.Count == 1)
+                if (_enemySpawners.Count == 1)
                 {
                     _enemySpawners[0].HaveTeleporter = true;
                 }
                 return;
             }
         }
-        if(_enemySpawners.Count == 0)
+        if (_enemySpawners.Count == 0)
         {
             Destroy(gameObject);
         }

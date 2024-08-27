@@ -9,12 +9,26 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] float _attackDistance;
     [SerializeField] private Player _player;
     private Vector3 _baseTarget;
+    private NavMeshAgent _navMeshAgent;
+
     public Player Player
     {
         get { return _player; }
         set { _player = value; }
     }
-    private NavMeshAgent _navMeshAgent;
+
+    public float Speed
+    {
+        get { return _speed; }
+        set 
+        {
+            _speed = value;
+            if(_navMeshAgent != null)
+            {
+                _navMeshAgent.speed = _speed;
+            }
+        }
+    }
 
     private void Start()
     {

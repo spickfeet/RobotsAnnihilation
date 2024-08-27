@@ -4,8 +4,8 @@ using Assets.Scripts.Utilities;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
+using Assets.Scripts.Utilities.Sounds;
 
 [RequireComponent(typeof(AudioSource))]
 public class Player : MonoBehaviour, IDamageable
@@ -18,10 +18,12 @@ public class Player : MonoBehaviour, IDamageable
     [SerializeField] private LayerMask _interactableLayer;
     [SerializeField] private GameObject _pressE;
 
+
     [SerializeField] private AudioClip _applyDamageSound;
     [SerializeField] private AudioClip _applyHealSound;
     [SerializeField] private AudioClip _lowHPSound;
-    private AudioSource _audioSource;
+    private ISoundManager _soundManager;
+
 
     private int _currentHealth;
     private Inventory _inventory;
@@ -52,8 +54,9 @@ public class Player : MonoBehaviour, IDamageable
 
     private void Awake()
     {
+        _soundManager = new SoundManager(GetComponent<AudioSource>(), SoundType.SFX);
+
         _animator = GetComponent<Animator>();
-        _audioSource = GetComponent<AudioSource>();
 
         _inventory = new(new List<IItem>());
         _currentHealth = _maxHealth;
@@ -117,8 +120,8 @@ public class Player : MonoBehaviour, IDamageable
             return;
         }
 
-        if(_currentHealth * 4 <= _maxHealth) _audioSource.PlayOneShot(_lowHPSound);
-        else _audioSource.PlayOneShot(_applyDamageSound);
+        if(_currentHealth * 4 <= _maxHealth) _soundManager.PlayOneShot(_lowHPSound);
+        else _soundManager.PlayOneShot(_applyDamageSound);
 
         _animator.Play("PlayerImmortal");
         ApplyImmortality(_timeImmortalityAfterDamage);
@@ -128,7 +131,7 @@ public class Player : MonoBehaviour, IDamageable
     {
         if (health < 0) throw new ArgumentException("Лечение не может быть отрицательным");
         _currentHealth += health;
-        _audioSource.PlayOneShot(_applyHealSound);
+        _soundManager.PlayOneShot(_applyHealSound);
 
 
         if (_currentHealth > _maxHealth)

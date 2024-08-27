@@ -175,7 +175,7 @@ MonoBehaviour:
   _speed: 5
   _dashForce: 20
   _dashTime: 0.2
-  _dashCooldown: 1.5
+  _dashCooldown: 0.5
   _animator: {fileID: 0}
   _nextDashTime: 0
 --- !u!114 &4888511151101045620
@@ -597,7 +597,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_Sprite: {fileID: -2481168726957875176, guid: f2b67482c33d7b440a2281e27c4e0a12, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -622,11 +622,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _controller: {fileID: 0}
+  _nextShootTime: 0.1
   _firePoint: {fileID: 5392894202224305777}
   _bulletPrefab: {fileID: 8809553760018182014, guid: 252c7f7c6e841554fab9ffbbe693913e, type: 3}
   _bulletSpeed: 20
   _centerOfCircle: {fileID: 373804594633845542}
   _shootSound: {fileID: 8300000, guid: 9dce36d4eb4fa8c40b5959347e6f0f1f, type: 3}
+  _nextShootTimer: 0
 --- !u!82 &4805667345151565696
 AudioSource:
   m_ObjectHideFlags: 0
