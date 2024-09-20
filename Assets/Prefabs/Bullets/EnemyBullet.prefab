@@ -168,7 +168,7 @@ MonoBehaviour:
   _speed: 20
   _lifeTime: 5
   _damage: 1
-  _hitEffectPrefab: {fileID: 5434119395414631537, guid: 8f5b8b725fb5c9248849e6906f58ed51, type: 3}
+  _hitEffectPrefab: {fileID: 5434119395414631537, guid: db34f469240c3924bb72e15aae133fea, type: 3}
 --- !u!114 &7259503287845749999
 MonoBehaviour:
   m_ObjectHideFlags: 0

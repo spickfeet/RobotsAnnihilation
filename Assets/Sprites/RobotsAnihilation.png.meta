@@ -877,7 +877,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 6, y: 6, z: 6, w: 6}
       outline: []
       physicsShape: []
@@ -898,7 +898,7 @@ TextureImporter:
         width: 11
         height: 11
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -906,6 +906,27 @@ TextureImporter:
       bones: []
       spriteID: bff66d7e11346014099f1a37e59f5a46
       internalID: 943345488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RobotsAnihilation_36
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 96
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47c632f63992e7d4f8c955bf3b40bfb2
+      internalID: 201579655
       vertices: []
       indices: 
       edges: []
@@ -951,6 +972,7 @@ TextureImporter:
       RobotsAnihilation_33: -616384836
       RobotsAnihilation_34: 325981717
       RobotsAnihilation_35: 943345488
+      RobotsAnihilation_36: 201579655
       RobotsAnihilation_4: -2481168726957875176
       RobotsAnihilation_5: -2571654256477135968
       RobotsAnihilation_6: -280586019341724257

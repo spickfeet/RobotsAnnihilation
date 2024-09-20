@@ -12,6 +12,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float _dashTime;
     [SerializeField] private float _dashCooldown;
 
+    [SerializeField] private Animator _animator;
+
     private Rigidbody2D _rigidbody2D;
     private SpriteRenderer _spriteRenderer;
 
@@ -23,6 +25,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
+        _animator = GetComponent<Animator>();
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _player = GetComponent<Player>();
@@ -56,19 +59,24 @@ public class PlayerMovement : MonoBehaviour
     }
 
     public void Dash()
-    {
+    {   
         Vector2 dashPos = new Vector2();
         dashPos.x = Input.GetAxis("Horizontal");
         dashPos.y = Input.GetAxis("Vertical");
+        if (dashPos.magnitude > 0)
+        {
+            _animator.Play("PlayerDash");
+        }
         _rigidbody2D.velocity = (dashPos.normalized * _dashForce);
         _player.ApplyImmortality(_dashTime);
     }
 
     private void Move()
-    {
+    {        
         Vector2 nextPos = new Vector2();
         nextPos.x = Input.GetAxis("Horizontal");
         nextPos.y = Input.GetAxis("Vertical");
+        _animator.SetFloat("Move", nextPos.magnitude);
 
         nextPos *= _speed;
 
